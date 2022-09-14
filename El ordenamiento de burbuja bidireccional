@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo Grupal</title>
+    <script>
+        function obBidireccional(arr) {
+
+            n1= document.getElementById("txtNro1").value;
+            n2= document.getElementById("txtNro2").value;
+            n3= document.getElementById("txtNro3").value;
+            n4= document.getElementById("txtNro4").value;
+            n5= document.getElementById("txtNro5").value;
+            n6= document.getElementById("txtNro6").value;
+            n7= document.getElementById("txtNro7").value;
+            n8= document.getElementById("txtNro8").value;
+            n9= document.getElementById("txtNro9").value;
+            n10= document.getElementById("txtNro10").value;
+            var arr = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10]   
+             
+            
+
+            let start = 0, end = arr.length, swapped = true;
+
+            while (swapped) {
+                
+                swapped = false;
+
+                
+                for (let i = start; i < end - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        let temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                
+                end--;
+
+                
+                if (!swapped) {
+                    break;
+                }
+
+                
+                swapped = false;
+
+
+                for (let i = end - 1; i > start; i--) {
+                    if (arr[i - 1] > arr[i]) {
+                        let temp = arr[i];
+                        arr[i] = arr[i - 1];
+                        arr[i - 1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                
+                start++;
+                document.getElementById("lblResultado").innerHTML = arr;
+            }
+
+            return arr;
+            
+            
+            
+               
+        }
+        
+    </script>
+</head>
+
+<body>
+    
+    <h3>Ordenamiento Burbuja bidireccional</h3>
+    <input type="text" id="txtNro1"> <br><br>
+    <input type="text" id="txtNro2"> <br><br>
+    <input type="text" id="txtNro3"> <br><br>
+    <input type="text" id="txtNro4"> <br><br>
+    <input type="text" id="txtNro5"> <br><br>
+    <input type="text" id="txtNro6"> <br><br>
+    <input type="text" id="txtNro7"> <br><br>
+    <input type="text" id="txtNro8"> <br><br>
+    <input type="text" id="txtNro9"> <br><br>
+    <input type="text" id="txtNro10"> <br><br>
+    <button type="button" onclick="obBidireccional()">Ordenar</button>
+    
+    <p id="lblResultado"></p>
+</body>
+
+</html>
