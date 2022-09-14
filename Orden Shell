@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var datos = [];
+        function Almacenar()
+        {
+            //Declaracion de variables
+            var dato = document.getElementById("txtdato").value;
+            //almacenar datos
+            datos.push(dato);
+            document.getElementById("lblResultado").innerHTML = datos;
+        }
+        function shellSort() 
+        {
+        let incremento = datos.length / 2;
+
+        while (incremento > 0) 
+        {
+            for (let i = 0; i < datos.length; i++) 
+            {
+                let j = i;
+                let nro = datos[i];
+
+                while (j >= incremento && datos[j - incremento] > nro) 
+                {
+                    datos[j] = datos[j - incremento];
+                    j -= incremento;
+                }
+
+            datos[j] = nro;
+            }
+
+            if (incremento == 2) 
+            {
+                incremento = 1;
+            } 
+            else 
+            {
+                incremento = parseInt(incremento * 5 / 11);
+            }
+        }
+        document.getElementById("lblResultado").innerHTML = datos;
+        }
+    </script>
+</head>
+<body>
+    <!--Formulario en Java Script-->
+    <h3>Orden Shell</h3>
+    <input type="text" id="txtdato"> <br><br>
+    <button type="button" onclick="Almacenar()" >Almacenar</button>
+    <button type="button" onclick="shellSort()" >Orden Shell</button>
+    <p id="lblResultado" ></p>   
+</body>
+</html>
